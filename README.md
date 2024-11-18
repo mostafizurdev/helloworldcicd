@@ -95,3 +95,30 @@ Step 5: Commit and Push Workflow Configuration
 
 - git commit -m "Add GitHub Actions CI/CD pipeline"
 - git push
+
+# Just Test metarial
+- "test": "echo \"Error: no test specified\" && exit 1",
+
+# Install Mocha and Chai for testing
+npm install mocha chai --save-dev
+
+# Create a test file
+- mkdir test
+- test/test.js
+
+# Code File:
+
+const chai = require('chai');
+const expect = chai.expect;
+
+describe('HelloWorldApp', () => {
+  it('should return Hello World', () => {
+    const output = 'Hello World!';
+    expect(output).to.equal('Hello World!');
+  });
+});
+
+
+# Add a test script to package.json
+sed -i '' 's/"scripts": {\n/"scripts": {\n    "test": "mocha",\n/' package.json
+
